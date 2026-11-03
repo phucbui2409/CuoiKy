@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <Body>
+    <ReportItems>
+      <!-- Tiêu đề cửa hàng -->
+      <Textbox Name="txtShopName">
+        <CanGrow>true</CanGrow>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>HỆ THỐNG QUẢN LÝ BÁN HÀNG ONLINE</Value>
+                <Style><FontFamily>Segoe UI</FontFamily><FontSize>11pt</FontSize><FontWeight>Bold</FontWeight><Color>#2B6CB0</Color></Style>
+              </TextRun>
+            </TextRuns>
+            <Style><TextAlign>Center</TextAlign></Style>
+          </Paragraph>
+        </Paragraphs>
+        <Top>0.1in</Top>
+        <Left>0.5in</Left>
+        <Height>0.3in</Height>
+        <Width>6.5in</Width>
+      </Textbox>
+
+      <!-- Tiêu đề báo cáo -->
+      <Textbox Name="txtReportTitle">
+        <CanGrow>true</CanGrow>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>BÁO CÁO THỐNG KÊ DOANH THU BÁN HÀNG</Value>
+                <Style><FontFamily>Segoe UI</FontFamily><FontSize>15pt</FontSize><FontWeight>Bold</FontWeight><Color>#1A202C</Color></Style>
+              </TextRun>
+            </TextRuns>
+            <Style><TextAlign>Center</TextAlign></Style>
+          </Paragraph>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Thời gian: Từ ngày </Value>
+                <Style><FontFamily>Segoe UI</FontFamily><FontSize>9.5pt</FontSize><FontStyle>Italic</FontStyle></Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Parameters!pTuNgay.Value</Value>
+                <Style><FontFamily>Segoe UI</FontFamily><FontSize>9.5pt</FontSize><FontWeight>Bold</FontWeight></Style>
+              </TextRun>
+              <TextRun>
+                <Value>  đến ngày </Value>
+                <Style><FontFamily>Segoe UI</FontFamily><FontSize>9.5pt</FontSize><FontStyle>Italic</FontStyle></Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Parameters!pDenNgay.Value</Value>
+                <Style><FontFamily>Segoe UI</FontFamily><FontSize>9.5pt</FontSize><FontWeight>Bold</FontWeight></Style>
+              </TextRun>
+            </TextRuns>
+            <Style><TextAlign>Center</TextAlign></Style>
+          </Paragraph>
+        </Paragraphs>
+        <Top>0.45in</Top>
+        <Left>0.5in</Left>
+        <Height>0.55in</Height>
+        <Width>6.5in</Width>
+      </Textbox>
+
+      <!-- Thông tin tiêu chí & người lập -->
+      <Textbox Name="txtFilterInfo">
+        <CanGrow>true</CanGrow>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Tiêu chí lọc: </Value>
+                <Style><FontFamily>Segoe UI</FontFamily><FontWeight>Bold</FontWeight></Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Parameters!pTieuChi.Value</Value>
+                <Style><FontFamily>Segoe UI</FontFamily></Style>
+              </TextRun>
+              <TextRun>
+                <Value>   |   Người lập báo cáo: </Value>
+                <Style><FontFamily>Segoe UI</FontFamily><FontWeight>Bold</FontWeight></Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Parameters!pNguoiLapBaoCao.Value</Value>
+                <Style><FontFamily>Segoe UI</FontFamily></Style>
+              </TextRun>
+            </TextRuns>
+          </Paragraph>
+        </Paragraphs>
+        <Top>1.05in</Top>
+        <Left>0.5in</Left>
+        <Height>0.3in</Height>
+        <Width>6.5in</Width>
+      </Textbox>
+
+      <!-- Bảng số liệu thống kê Tablix -->
+      <Tablix Name="TablixDoanhThu">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn><Width>0.4in</Width></TablixColumn>
+            <TablixColumn><Width>0.7in</Width></TablixColumn>
+            <TablixColumn><Width>1.2in</Width></TablixColumn>
+            <TablixColumn><Width>1.8in</Width></TablixColumn>
+            <TablixColumn><Width>1.1in</Width></TablixColumn>
+            <TablixColumn><Width>0.9in</Width></TablixColumn>
+            <TablixColumn><Width>1.1in</Width></TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <!-- Header -->
+            <TablixRow>
+              <Height>0.3in</Height>
+              <TablixCells>
+                <TablixCell><CellContents><Textbox Name="h1"><Paragraphs><Paragraph><TextRuns><TextRun><Value>STT</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>9pt</FontSize><FontWeight>Bold</FontWeight><Color>White</Color></Style></TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs><Style><BackgroundColor>#2B6CB0</BackgroundColor><BorderStyle><Default>Solid</Default></BorderStyle><BorderColor><Default>#CBD5E0</Default></BorderColor></Style></Textbox></CellContents></TablixCell>
+                <TablixCell><CellContents><Textbox Name="h2"><Paragraphs><Paragraph><TextRuns><TextRun><Value>Mã Đơn</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>9pt</FontSize><FontWeight>Bold</FontWeight><Color>White</Color></Style></TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs><Style><BackgroundColor>#2B6CB0</BackgroundColor><BorderStyle><Default>Solid</Default></BorderStyle><BorderColor><Default>#CBD5E0</Default></BorderColor></Style></Textbox></CellContents></TablixCell>
+                <TablixCell><CellContents><Textbox Name="h3"><Paragraphs><Paragraph><TextRuns><TextRun><Value>Ngày Đặt</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>9pt</FontSize><FontWeight>Bold</FontWeight><Color>White</Color></Style></TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs><Style><BackgroundColor>#2B6CB0</BackgroundColor><BorderStyle><Default>Solid</Default></BorderStyle><BorderColor><Default>#CBD5E0</Default></BorderColor></Style></Textbox></CellContents></TablixCell>
+                <TablixCell><CellContents><Textbox Name="h4"><Paragraphs><Paragraph><TextRuns><TextRun><Value>Khách Hàng</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>9pt</FontSize><FontWeight>Bold</FontWeight><Color>White</Color></Style></TextRun></TextRuns><Style><TextAlign>Left</TextAlign></Style></Paragraph></Paragraphs><Style><BackgroundColor>#2B6CB0</BackgroundColor><PaddingLeft>4pt</PaddingLeft><BorderStyle><Default>Solid</Default></BorderStyle><BorderColor><Default>#CBD5E0</Default></BorderColor></Style></Textbox></CellContents></TablixCell>
+                <TablixCell><CellContents><Textbox Name="h5"><Paragraphs><Paragraph><TextRuns><TextRun><Value>Nhân Viên</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>9pt</FontSize><FontWeight>Bold</FontWeight><Color>White</Color></Style></TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs><Style><BackgroundColor>#2B6CB0</BackgroundColor><BorderStyle><Default>Solid</Default></BorderStyle><BorderColor><Default>#CBD5E0</Default></BorderColor></Style></Textbox></CellContents></TablixCell>
+                <TablixCell><CellContents><Textbox Name="h6"><Paragraphs><Paragraph><TextRuns><TextRun><Value>Trạng Thái</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>9pt</FontSize><FontWeight>Bold</FontWeight><Color>White</Color></Style></TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs><Style><BackgroundColor>#2B6CB0</BackgroundColor><BorderStyle><Default>Solid</Default></BorderStyle><BorderColor><Default>#CBD5E0</Default></BorderColor></Style></Textbox></CellContents></TablixCell>
+                <TablixCell><CellContents><Textbox Name="h7"><Paragraphs><Paragraph><TextRuns><TextRun><Value>Doanh Thu (VND)</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>9pt</FontSize><FontWeight>Bold</FontWeight><Color>White</Color></Style></TextRun></TextRuns><Style><TextAlign>Right</TextAlign></Style></Paragraph></Paragraphs><Style><BackgroundColor>#2B6CB0</BackgroundColor><PaddingRight>4pt</PaddingRight><BorderStyle><Default>Solid</Default></BorderStyle><BorderColor><Default>#CBD5E0</Default></BorderColor></Style></Textbox></CellContents></TablixCell>
+              </TablixCells>
+            </TablixRow>
+
+            <!-- Data Row -->
+            <TablixRow>
+              <Height>0.26in</Height>
+              <TablixCells>
+                <TablixCell><CellContents><Textbox Name="d1"><Paragraphs><Paragraph><TextRuns><TextRun><Value>=Fields!STT.Value</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>9pt</FontSize></Style></TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs><Style><BorderStyle><Default>Solid</Default></BorderStyle><BorderColor><Default>#E2E8F0</Default></BorderColor></Style></Textbox></CellContents></TablixCell>
+                <TablixCell><CellContents><Textbox Name="d2"><Paragraphs><Paragraph><TextRuns><TextRun><Value>=Fields!SoThuTu.Value</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>9pt</FontSize><FontWeight>Bold</FontWeight></Style></TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs><Style><BorderStyle><Default>Solid</Default></BorderStyle><BorderColor><Default>#E2E8F0</Default></BorderColor></Style></Textbox></CellContents></TablixCell>
+                <TablixCell><CellContents><Textbox Name="d3"><Paragraphs><Paragraph><TextRuns><TextRun><Value>=Fields!NgayDatHang.Value</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>9pt</FontSize></Style></TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs><Style><BorderStyle><Default>Solid</Default></BorderStyle><BorderColor><Default>#E2E8F0</Default></BorderColor></Style></Textbox></CellContents></TablixCell>
+                <TablixCell><CellContents><Textbox Name="d4"><Paragraphs><Paragraph><TextRuns><TextRun><Value>=Fields!TenKhachHang.Value</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>9pt</FontSize></Style></TextRun></TextRuns><Style><TextAlign>Left</TextAlign></Style></Paragraph></Paragraphs><Style><PaddingLeft>4pt</PaddingLeft><BorderStyle><Default>Solid</Default></BorderStyle><BorderColor><Default>#E2E8F0</Default></BorderColor></Style></Textbox></CellContents></TablixCell>
+                <TablixCell><CellContents><Textbox Name="d5"><Paragraphs><Paragraph><TextRuns><TextRun><Value>=Fields!NhanVien.Value</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>9pt</FontSize></Style></TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs><Style><BorderStyle><Default>Solid</Default></BorderStyle><BorderColor><Default>#E2E8F0</Default></BorderColor></Style></Textbox></CellContents></TablixCell>
+                <TablixCell><CellContents><Textbox Name="d6"><Paragraphs><Paragraph><TextRuns><TextRun><Value>=Fields!TrangThai.Value</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>9pt</FontSize></Style></TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs><Style><BorderStyle><Default>Solid</Default></BorderStyle><BorderColor><Default>#E2E8F0</Default></BorderColor></Style></Textbox></CellContents></TablixCell>
+                <TablixCell><CellContents><Textbox Name="d7"><Paragraphs><Paragraph><TextRuns><TextRun><Value>=Format(Fields!TongTien.Value, "N0")</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>9pt</FontSize><FontWeight>Bold</FontWeight></Style></TextRun></TextRuns><Style><TextAlign>Right</TextAlign></Style></Paragraph></Paragraphs><Style><PaddingRight>4pt</PaddingRight><BorderStyle><Default>Solid</Default></BorderStyle><BorderColor><Default>#E2E8F0</Default></BorderColor></Style></Textbox></CellContents></TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember /><TablixMember /><TablixMember /><TablixMember /><TablixMember /><TablixMember /><TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember><KeepWithGroup>After</KeepWithGroup><RepeatOnNewPage>true</RepeatOnNewPage></TablixMember>
+            <TablixMember><Group Name="Details" /></TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>DataSetDoanhThu</DataSetName>
+        <Top>1.4in</Top>
+        <Left>0.4in</Left>
+        <Height>0.56in</Height>
+        <Width>7.2in</Width>
+      </Tablix>
+
+      <!-- Khối tổng kết (Sum) -->
+      <Textbox Name="txtSummary">
+        <CanGrow>true</CanGrow>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Tổng số đơn hàng: </Value>
+                <Style><FontFamily>Segoe UI</FontFamily><FontWeight>Bold</FontWeight></Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Parameters!pTongSoDon.Value</Value>
+                <Style><FontFamily>Segoe UI</FontFamily><FontWeight>Bold</FontWeight><Color>#2B6CB0</Color></Style>
+              </TextRun>
+              <TextRun>
+                <Value>       TỔNG DOANH THU: </Value>
+                <Style><FontFamily>Segoe UI</FontFamily><FontSize>11pt</FontSize><FontWeight>Bold</FontWeight></Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Parameters!pTongDoanhThu.Value</Value>
+                <Style><FontFamily>Segoe UI</FontFamily><FontSize>13pt</FontSize><FontWeight>Bold</FontWeight><Color>#C53030</Color></Style>
+              </TextRun>
+              <TextRun>
+                <Value>  VND</Value>
+                <Style><FontFamily>Segoe UI</FontFamily><FontSize>11pt</FontSize><FontWeight>Bold</FontWeight></Style>
+              </TextRun>
+            </TextRuns>
+            <Style><TextAlign>Right</TextAlign></Style>
+          </Paragraph>
+        </Paragraphs>
+        <Top>2.05in</Top>
+        <Left>0.4in</Left>
+        <Height>0.45in</Height>
+        <Width>7.2in</Width>
+      </Textbox>
+    </ReportItems>
+    <Height>2.7in</Height>
+  </Body>
+
+  <ReportParameters>
+    <ReportParameter Name="pTuNgay"><DataType>String</DataType><Prompt>pTuNgay</Prompt></ReportParameter>
+    <ReportParameter Name="pDenNgay"><DataType>String</DataType><Prompt>pDenNgay</Prompt></ReportParameter>
+    <ReportParameter Name="pTieuChi"><DataType>String</DataType><Prompt>pTieuChi</Prompt></ReportParameter>
+    <ReportParameter Name="pTongDoanhThu"><DataType>String</DataType><Prompt>pTongDoanhThu</Prompt></ReportParameter>
+    <ReportParameter Name="pTongSoDon"><DataType>String</DataType><Prompt>pTongSoDon</Prompt></ReportParameter>
+    <ReportParameter Name="pNguoiLapBaoCao"><DataType>String</DataType><Prompt>pNguoiLapBaoCao</Prompt></ReportParameter>
+  </ReportParameters>
+
+  <DataSets>
+    <DataSet Name="DataSetDoanhThu">
+      <Query>
+        <DataSourceName>DummyDataSource</DataSourceName>
+        <CommandText />
+      </Query>
+      <Fields>
+        <Field Name="STT"><DataField>STT</DataField><rd:TypeName>System.Int32</rd:TypeName></Field>
+        <Field Name="SoThuTu"><DataField>SoThuTu</DataField><rd:TypeName>System.Int32</rd:TypeName></Field>
+        <Field Name="NgayDatHang"><DataField>NgayDatHang</DataField><rd:TypeName>System.String</rd:TypeName></Field>
+        <Field Name="TenKhachHang"><DataField>TenKhachHang</DataField><rd:TypeName>System.String</rd:TypeName></Field>
+        <Field Name="NhanVien"><DataField>NhanVien</DataField><rd:TypeName>System.String</rd:TypeName></Field>
+        <Field Name="TrangThai"><DataField>TrangThai</DataField><rd:TypeName>System.String</rd:TypeName></Field>
+        <Field Name="TongTien"><DataField>TongTien</DataField><rd:TypeName>System.Decimal</rd:TypeName></Field>
+      </Fields>
+    </DataSet>
+  </DataSets>
+
+  <Width>7.8in</Width>
+  <Page>
+    <LeftMargin>0.4in</LeftMargin><RightMargin>0.4in</RightMargin><TopMargin>0.4in</TopMargin><BottomMargin>0.4in</BottomMargin>
+  </Page>
+  <Language>vi-VN</Language>
+  <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+</Report>

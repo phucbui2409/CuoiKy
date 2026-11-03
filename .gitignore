@@ -1,0 +1,25 @@
+## Visual Studio & C# .NET Ignore Rules
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Build outputs
+bin/
+obj/
+*.pdb
+
+## Temporary and local cache files
+*.log
+*.tmp
+*.bak
+*.cache
+
+## NuGet Package Archives (keep DLLs for instant build, ignore cache archives)
+packages/**/*.nupkg
+
+## Local scratch files
+scratch/
+*.ps1
+token.txt

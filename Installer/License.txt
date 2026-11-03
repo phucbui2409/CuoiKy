@@ -1,0 +1,38 @@
+HỆ THỐNG QUẢN LÝ BÁN HÀNG ONLINE (.NET FRAMEWORK 4.8)
+Đồ Án Môn Học: Lập Trình Windows
+Tác giả / Nhóm phát triển: Sinh viên ngành Công Nghệ Thông Tin
+================================================================
+
+1. GIỚI THIỆU PHẦN MỀM:
+Phần mềm Quản Lý Bán Hàng Online là giải pháp quản lý bán hàng toàn diện,
+được phát triển trên nền tảng .NET Framework 4.8, C# WinForms và Microsoft SQL Server.
+
+Các tính năng nổi bật:
+- Đặt hàng online, quản lý giỏ hàng và khách hàng.
+- Xử lý đơn hàng thông minh theo nguyên tắc FIFO (vào trước ra trước).
+- Tra cứu, tìm kiếm sản phẩm nâng cao đa tiêu chí.
+- Thống kê doanh thu đa dạng với 3 loại biểu đồ trực quan (Line, Column, Doughnut).
+- In hóa đơn bán hàng và xuất báo cáo doanh thu Microsoft Reporting (.RDLC) / Excel.
+- Quản trị người dùng, vai trò và phân quyền chức năng chi tiết (RBAC).
+- Quản lý cấu hình chuỗi kết nối App.config bảo mật AES-256 (Đổi máy demo Zero-Crash).
+- Tự động kiểm tra và khởi tạo Cơ Sở Dữ Liệu SQL Server lần đầu (Auto-Database Initializer).
+
+2. YÊU CẦU HỆ THỐNG:
+- Hệ điều hành: Windows 10 / Windows 11 (32-bit hoặc 64-bit).
+- Nền tảng: Microsoft .NET Framework 4.8 trở lên.
+- Hệ quản trị CSDL: Microsoft SQL Server (LocalDB / Express / Standard / Developer).
+
+3. TÀI KHOẢN ĐĂNG NHẬP MẶC ĐỊNH:
+- Quản trị viên (ADMIN):
+  + Tên đăng nhập: admin
+  + Mật khẩu: admin123 (toàn quyền quản trị hệ thống)
+- Quản lý bán hàng (QUANLY):
+  + Tên đăng nhập: quanly
+  + Mật khẩu: 123456
+- Nhân viên bán hàng (NHANVIEN):
+  + Tên đăng nhập: nhanvien
+  + Mật khẩu: 123456
+
+4. QUYỀN SỬ DỤNG:
+Phần mềm được đóng gói hoàn chỉnh phục vụ mục đích học tập, thuyết trình và đánh giá đồ án môn học.
+Mọi mã nguồn và dữ liệu đều thuộc bản quyền nhóm phát triển.

@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 18.75, 10.25" name="DataClasses1">
+  <DataContextMoniker Name="/DataClasses1DataContext" />
+  <nestedChildShapes>
+    <classShape Id="11111111-1111-1111-1111-111111111103" absoluteBounds="0.5, 1, 2.25, 1.3862939453125">
+      <DataClassMoniker Name="/DataClasses1DataContext/ChucNang" />
+      <nestedChildShapes>
+        <elementListCompartment Id="22222222-2222-2222-2222-222222222203" absoluteBounds="0.5149999999999999, 1.46, 2.2199999999999998, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="11111111-1111-1111-1111-111111111102" absoluteBounds="0.5, 3.125, 2.25, 1.3862939453124996">
+      <DataClassMoniker Name="/DataClasses1DataContext/PhanQuyen" />
+      <nestedChildShapes>
+        <elementListCompartment Id="22222222-2222-2222-2222-222222222202" absoluteBounds="0.5149999999999999, 3.585, 2.2199999999999998, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="11111111-1111-1111-1111-111111111104" absoluteBounds="3.875, 0.5, 2.25, 2.9247054036458331">
+      <DataClassMoniker Name="/DataClasses1DataContext/NguoiDung" />
+      <nestedChildShapes>
+        <elementListCompartment Id="22222222-2222-2222-2222-222222222204" absoluteBounds="3.8899999999999997, 0.96, 2.2199999999999998, 2.364705403645833" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="11111111-1111-1111-1111-111111111101" absoluteBounds="2.25, 5.25, 2.25, 1.3862939453124996">
+      <DataClassMoniker Name="/DataClasses1DataContext/VaiTro" />
+      <nestedChildShapes>
+        <elementListCompartment Id="22222222-2222-2222-2222-222222222201" absoluteBounds="2.2649999999999997, 5.7100000000000009, 2.2199999999999998, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="11111111-1111-1111-1111-111111111111" absoluteBounds="5.5, 4.5, 2.25, 2.3478011067708326">
+      <DataClassMoniker Name="/DataClasses1DataContext/NhanVien" />
+      <nestedChildShapes>
+        <elementListCompartment Id="22222222-2222-2222-2222-222222222211" absoluteBounds="5.515, 4.96, 2.2199999999999998, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="11111111-1111-1111-1111-111111111109" absoluteBounds="8.625, 1, 2.25, 1.7708968098958331">
+      <DataClassMoniker Name="/DataClasses1DataContext/KhachHang" />
+      <nestedChildShapes>
+        <elementListCompartment Id="22222222-2222-2222-2222-222222222209" absoluteBounds="8.64, 1.46, 2.2199999999999998, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="11111111-1111-1111-1111-111111111110" absoluteBounds="8.625, 4.25, 2.25, 2.7324039713541666">
+      <DataClassMoniker Name="/DataClasses1DataContext/DonHang" />
+      <nestedChildShapes>
+        <elementListCompartment Id="22222222-2222-2222-2222-222222222210" absoluteBounds="8.64, 4.71, 2.2199999999999998, 2.1724039713541665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="11111111-1111-1111-1111-111111111108" absoluteBounds="8.625, 8, 2.25, 1.9631982421875005">
+      <DataClassMoniker Name="/DataClasses1DataContext/ChiTietDonHang" />
+      <nestedChildShapes>
+        <elementListCompartment Id="22222222-2222-2222-2222-222222222208" absoluteBounds="8.64, 8.46, 2.2199999999999998, 1.4031982421875" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="11111111-1111-1111-1111-111111111105" absoluteBounds="12.375, 4.5, 2.25, 1.3862939453125">
+      <DataClassMoniker Name="/DataClasses1DataContext/LoaiHang" />
+      <nestedChildShapes>
+        <elementListCompartment Id="22222222-2222-2222-2222-222222222205" absoluteBounds="12.39, 4.96, 2.2199999999999998, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="11111111-1111-1111-1111-111111111106" absoluteBounds="12.375, 7.625, 2.25, 2.3478011067708326">
+      <DataClassMoniker Name="/DataClasses1DataContext/HangHoa" />
+      <nestedChildShapes>
+        <elementListCompartment Id="22222222-2222-2222-2222-222222222206" absoluteBounds="12.39, 8.085, 2.2199999999999998, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="11111111-1111-1111-1111-111111111107" absoluteBounds="16.25, 8.25, 2.25, 1.7708968098958344">
+      <DataClassMoniker Name="/DataClasses1DataContext/NhaSanXuat" />
+      <nestedChildShapes>
+        <elementListCompartment Id="22222222-2222-2222-2222-222222222207" absoluteBounds="16.265, 8.71, 2.2199999999999998, 1.2108968098958333" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(1.625 : 2.3862939453125); (1.625 : 3.125)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/DataClasses1DataContext/ChucNang/ChucNang_PhanQuyen" />
+      <nodes>
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111103" />
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111102" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(2.5 : 5.25); (2.5 : 4.5112939453125)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataClasses1DataContext/VaiTro/VaiTro_PhanQuyen" />
+      <nodes>
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111101" />
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111102" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.1875 : 5.25); (4.1875 : 3.42470540364583)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataClasses1DataContext/VaiTro/VaiTro_NguoiDung" />
+      <nodes>
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111101" />
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111104" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.5 : 5.94314697265625); (5.5 : 5.94314697265625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataClasses1DataContext/VaiTro/VaiTro_NhanVien" />
+      <nodes>
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111101" />
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111111" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.8125 : 4.5); (5.8125 : 3.42470540364583)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataClasses1DataContext/NhanVien/NhanVien_NguoiDung" />
+      <nodes>
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111111" />
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111104" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(7.75 : 5.67390055338542); (8.625 : 5.67390055338542)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataClasses1DataContext/NhanVien/NhanVien_DonHang" />
+      <nodes>
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111111" />
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111110" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.7 : 2.8); (9.7 : 4.2)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataClasses1DataContext/KhachHang/KhachHang_DonHang" />
+      <nodes>
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111109" />
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111110" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.7 : 6.7); (9.7 : 8)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataClasses1DataContext/DonHang/DonHang_ChiTietDonHang" />
+      <nodes>
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111110" />
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111108" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(13.5 : 5.8862939453125); (13.5 : 7.625)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataClasses1DataContext/LoaiHang/LoaiHang_HangHoa" />
+      <nodes>
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111105" />
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111106" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(16.25 : 9.11140055338542); (14.625 : 9.11140055338542)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataClasses1DataContext/NhaSanXuat/NhaSanXuat_HangHoa" />
+      <nodes>
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111107" />
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111106" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(12.375 : 8.98159912109375); (10.875 : 8.98159912109375)]" fixedFrom="NotFixed" fixedTo="NotFixed">
+      <AssociationMoniker Name="/DataClasses1DataContext/HangHoa/HangHoa_ChiTietDonHang" />
+      <nodes>
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111106" />
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111108" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

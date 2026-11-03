@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 16, 11" name="QuanLyBanHang">
+  <DataContextMoniker Name="/QuanLyBanHangDataContext" />
+  <nestedChildShapes>
+    <classShape Id="11111111-1111-1111-1111-111111111103" absoluteBounds="1, 1, 2.2, 1.45">
+      <DataClassMoniker Name="/QuanLyBanHangDataContext/ChucNang" />
+      <nestedChildShapes>
+        <elementListCompartment Id="22222222-2222-2222-2222-222222222203" absoluteBounds="1.015, 1.460, 2.170, 0.950" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="11111111-1111-1111-1111-111111111102" absoluteBounds="1, 4.2, 2.2, 1.45">
+      <DataClassMoniker Name="/QuanLyBanHangDataContext/PhanQuyen" />
+      <nestedChildShapes>
+        <elementListCompartment Id="22222222-2222-2222-2222-222222222202" absoluteBounds="1.015, 4.660, 2.170, 0.950" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="11111111-1111-1111-1111-111111111104" absoluteBounds="4.6, 1, 2.2, 2.5">
+      <DataClassMoniker Name="/QuanLyBanHangDataContext/NguoiDung" />
+      <nestedChildShapes>
+        <elementListCompartment Id="22222222-2222-2222-2222-222222222204" absoluteBounds="4.615, 1.460, 2.170, 2.000" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="11111111-1111-1111-1111-111111111101" absoluteBounds="4.6, 4.2, 2.2, 1.45">
+      <DataClassMoniker Name="/QuanLyBanHangDataContext/VaiTro" />
+      <nestedChildShapes>
+        <elementListCompartment Id="22222222-2222-2222-2222-222222222201" absoluteBounds="4.615, 4.660, 2.170, 0.950" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="11111111-1111-1111-1111-111111111111" absoluteBounds="4.6, 7.5, 2.2, 2.1">
+      <DataClassMoniker Name="/QuanLyBanHangDataContext/NhanVien" />
+      <nestedChildShapes>
+        <elementListCompartment Id="22222222-2222-2222-2222-222222222211" absoluteBounds="4.615, 7.960, 2.170, 1.600" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="11111111-1111-1111-1111-111111111109" absoluteBounds="8.6, 1, 2.2, 1.8">
+      <DataClassMoniker Name="/QuanLyBanHangDataContext/KhachHang" />
+      <nestedChildShapes>
+        <elementListCompartment Id="22222222-2222-2222-2222-222222222209" absoluteBounds="8.615, 1.460, 2.170, 1.300" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="11111111-1111-1111-1111-111111111110" absoluteBounds="8.6, 4.2, 2.2, 2.5">
+      <DataClassMoniker Name="/QuanLyBanHangDataContext/DonHang" />
+      <nestedChildShapes>
+        <elementListCompartment Id="22222222-2222-2222-2222-222222222210" absoluteBounds="8.615, 4.660, 2.170, 2.000" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="11111111-1111-1111-1111-111111111108" absoluteBounds="8.6, 8, 2.2, 1.8">
+      <DataClassMoniker Name="/QuanLyBanHangDataContext/ChiTietDonHang" />
+      <nestedChildShapes>
+        <elementListCompartment Id="22222222-2222-2222-2222-222222222208" absoluteBounds="8.615, 8.460, 2.170, 1.300" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="11111111-1111-1111-1111-111111111105" absoluteBounds="12.6, 1, 2.2, 1.45">
+      <DataClassMoniker Name="/QuanLyBanHangDataContext/LoaiHang" />
+      <nestedChildShapes>
+        <elementListCompartment Id="22222222-2222-2222-2222-222222222205" absoluteBounds="12.615, 1.460, 2.170, 0.950" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="11111111-1111-1111-1111-111111111106" absoluteBounds="12.6, 4.2, 2.2, 2.2">
+      <DataClassMoniker Name="/QuanLyBanHangDataContext/HangHoa" />
+      <nestedChildShapes>
+        <elementListCompartment Id="22222222-2222-2222-2222-222222222206" absoluteBounds="12.615, 4.660, 2.170, 1.700" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <classShape Id="11111111-1111-1111-1111-111111111107" absoluteBounds="12.6, 7.8, 2.2, 1.8">
+      <DataClassMoniker Name="/QuanLyBanHangDataContext/NhaSanXuat" />
+      <nestedChildShapes>
+        <elementListCompartment Id="22222222-2222-2222-2222-222222222207" absoluteBounds="12.615, 8.260, 2.170, 1.300" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+    <associationConnector edgePoints="[(2.1 : 2.45); (2.1 : 4.2)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/QuanLyBanHangDataContext/ChucNang/ChucNang_PhanQuyen" />
+      <nodes>
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111103" />
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111102" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.6 : 4.9); (3.2 : 4.9)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/QuanLyBanHangDataContext/VaiTro/VaiTro_PhanQuyen" />
+      <nodes>
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111101" />
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111102" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.7 : 4.2); (5.7 : 3.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/QuanLyBanHangDataContext/VaiTro/VaiTro_NguoiDung" />
+      <nodes>
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111101" />
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111104" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(5.7 : 5.65); (5.7 : 7.5)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/QuanLyBanHangDataContext/VaiTro/VaiTro_NhanVien" />
+      <nodes>
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111101" />
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111111" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(4.6 : 8.5); (4.6 : 2.2)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/QuanLyBanHangDataContext/NhanVien/NhanVien_NguoiDung" />
+      <nodes>
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111111" />
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111104" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(6.8 : 8.5); (8.6 : 5.4)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/QuanLyBanHangDataContext/NhanVien/NhanVien_DonHang" />
+      <nodes>
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111111" />
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111110" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.7 : 2.8); (9.7 : 4.2)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/QuanLyBanHangDataContext/KhachHang/KhachHang_DonHang" />
+      <nodes>
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111109" />
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111110" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(9.7 : 6.7); (9.7 : 8.0)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/QuanLyBanHangDataContext/DonHang/DonHang_ChiTietDonHang" />
+      <nodes>
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111110" />
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111108" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(13.7 : 2.45); (13.7 : 4.2)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/QuanLyBanHangDataContext/LoaiHang/LoaiHang_HangHoa" />
+      <nodes>
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111105" />
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111106" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(13.7 : 7.8); (13.7 : 6.4)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/QuanLyBanHangDataContext/NhaSanXuat/NhaSanXuat_HangHoa" />
+      <nodes>
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111107" />
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111106" />
+      </nodes>
+    </associationConnector>
+    <associationConnector edgePoints="[(12.6 : 5.3); (10.8 : 8.9)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+      <AssociationMoniker Name="/QuanLyBanHangDataContext/HangHoa/HangHoa_ChiTietDonHang" />
+      <nodes>
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111106" />
+        <classShapeMoniker Id="11111111-1111-1111-1111-111111111108" />
+      </nodes>
+    </associationConnector>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>
