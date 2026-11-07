@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -14,7 +14,7 @@ namespace QuanLyBanHangOnline.WinForms.UIExtension
     {
         private int _borderRadius = 10;
         private int _borderSize = 1;
-        private Color _cardColor = Color.White;
+        private Color _cardColor = UIThemeManager.SurfaceColor;
         private Color _borderColor = UIThemeManager.BorderColor;
         private Color _headerColor = Color.Transparent;
         private int _headerHeight = 0;
@@ -83,6 +83,14 @@ namespace QuanLyBanHangOnline.WinForms.UIExtension
         {
             get => _headerTextColor;
             set { _headerTextColor = value; this.Invalidate(); }
+        }
+
+        public void ApplyTheme()
+        {
+            this._cardColor = UIThemeManager.SurfaceColor;
+            this._borderColor = UIThemeManager.BorderColor;
+            this.ForeColor = UIThemeManager.TextPrimary;
+            this.Invalidate();
         }
 
         protected override void OnPaint(PaintEventArgs e)

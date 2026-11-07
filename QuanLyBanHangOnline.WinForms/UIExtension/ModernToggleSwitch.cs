@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -79,9 +79,18 @@ namespace QuanLyBanHangOnline.WinForms.UIExtension
         {
             Graphics g = pevent.Graphics;
             g.SmoothingMode = SmoothingMode.AntiAlias;
-            g.Clear(this.Parent?.BackColor ?? Color.White);
+
+            Color clearColor = this.Parent?.BackColor ?? (UIThemeManager.CurrentTheme == ThemeMode.Dark ? UIThemeManager.BackgroundColor : Color.White);
+            if (clearColor == Color.Transparent && this.Parent != null)
+            {
+                clearColor = this.Parent.Parent?.BackColor ?? (UIThemeManager.CurrentTheme == ThemeMode.Dark ? UIThemeManager.BackgroundColor : Color.White);
+            }
+            g.Clear(clearColor);
 
             int toggleSize = this.Height - 5;
+            Color effectiveOffBg = (UIThemeManager.CurrentTheme == ThemeMode.Dark) 
+                ? Color.FromArgb(51, 65, 85) 
+                : _offBackColor;
 
             using (GraphicsPath path = GetFigurePath())
             {
@@ -114,14 +123,14 @@ namespace QuanLyBanHangOnline.WinForms.UIExtension
                     // Vẽ nền trạng thái tắt
                     if (_solidStyle)
                     {
-                        using (Brush brush = new SolidBrush(_offBackColor))
+                        using (Brush brush = new SolidBrush(effectiveOffBg))
                         {
                             g.FillPath(brush, path);
                         }
                     }
                     else
                     {
-                        using (Pen pen = new Pen(_offBackColor, 2))
+                        using (Pen pen = new Pen(effectiveOffBg, 2))
                         {
                             g.DrawPath(pen, path);
                         }
