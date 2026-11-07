@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Windows.Forms;
@@ -60,12 +60,12 @@ namespace QuanLyBanHangOnline.WinForms.UIExtension
             }
         }
 
-        private void ApplyModernStyles()
+        public void ApplyModernStyles()
         {
             // Bật DoubleBuffering chống giật lag
             this.DoubleBuffered = true;
 
-            this.BackgroundColor = Color.White;
+            this.BackgroundColor = UIThemeManager.SurfaceColor;
             this.BorderStyle = BorderStyle.None;
             this.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
             this.GridColor = UIThemeManager.BorderColor;
@@ -73,7 +73,7 @@ namespace QuanLyBanHangOnline.WinForms.UIExtension
             // Column Header
             this.EnableHeadersVisualStyles = false;
             this.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
-            this.ColumnHeadersDefaultCellStyle.BackColor = _headerColor;
+            this.ColumnHeadersDefaultCellStyle.BackColor = UIThemeManager.PrimaryColor;
             this.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
             this.ColumnHeadersDefaultCellStyle.Font = UIThemeManager.HeaderFont;
             this.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -84,21 +84,22 @@ namespace QuanLyBanHangOnline.WinForms.UIExtension
             // Rows & Selection
             this.RowHeadersVisible = false;
             this.RowTemplate.Height = 32;
-            this.DefaultCellStyle.BackColor = Color.White;
+            this.DefaultCellStyle.BackColor = UIThemeManager.SurfaceColor;
             this.DefaultCellStyle.ForeColor = UIThemeManager.TextPrimary;
             this.DefaultCellStyle.Font = UIThemeManager.BodyFont;
-            this.DefaultCellStyle.SelectionBackColor = _selectionRowColor;
-            this.DefaultCellStyle.SelectionForeColor = UIThemeManager.TextPrimary;
+            this.DefaultCellStyle.SelectionBackColor = UIThemeManager.GridSelectionColor;
+            this.DefaultCellStyle.SelectionForeColor = (UIThemeManager.CurrentTheme == ThemeMode.Dark) ? UIThemeManager.TextLight : UIThemeManager.TextPrimary;
             this.DefaultCellStyle.Padding = new Padding(6, 2, 6, 2);
 
-            this.AlternatingRowsDefaultCellStyle.BackColor = _alternateRowColor;
+            this.AlternatingRowsDefaultCellStyle.BackColor = UIThemeManager.GridAlternateRow;
             this.AlternatingRowsDefaultCellStyle.ForeColor = UIThemeManager.TextPrimary;
-            this.AlternatingRowsDefaultCellStyle.SelectionBackColor = _selectionRowColor;
-            this.AlternatingRowsDefaultCellStyle.SelectionForeColor = UIThemeManager.TextPrimary;
+            this.AlternatingRowsDefaultCellStyle.SelectionBackColor = UIThemeManager.GridSelectionColor;
+            this.AlternatingRowsDefaultCellStyle.SelectionForeColor = (UIThemeManager.CurrentTheme == ThemeMode.Dark) ? UIThemeManager.TextLight : UIThemeManager.TextPrimary;
 
             this.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             this.MultiSelect = false;
             this.AllowUserToResizeRows = false;
+            this.Invalidate();
         }
 
         protected override void OnCellMouseEnter(DataGridViewCellEventArgs e)
@@ -142,12 +143,12 @@ namespace QuanLyBanHangOnline.WinForms.UIExtension
             // Tự động tô màu hiệu ứng Hover mượt mà
             if (e.RowIndex == _hoverRowIndex && !this.Rows[e.RowIndex].Selected)
             {
-                this.Rows[e.RowIndex].DefaultCellStyle.BackColor = _hoverRowColor;
+                this.Rows[e.RowIndex].DefaultCellStyle.BackColor = UIThemeManager.GridHoverColor;
             }
             else if (!this.Rows[e.RowIndex].Selected)
             {
                 this.Rows[e.RowIndex].DefaultCellStyle.BackColor =
-                    (e.RowIndex % 2 == 1) ? _alternateRowColor : Color.White;
+                    (e.RowIndex % 2 == 1) ? UIThemeManager.GridAlternateRow : UIThemeManager.SurfaceColor;
             }
         }
     }

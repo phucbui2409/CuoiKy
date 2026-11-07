@@ -10,7 +10,13 @@ namespace QuanLyBanHangOnline.WinForms.Forms
         public frmMain()
         {
             InitializeComponent();
+            UIThemeManager.ThemeChanged += OnThemeChanged;
             UIThemeManager.ApplyTheme(this);
+        }
+
+        private void OnThemeChanged(ThemeMode mode)
+        {
+            CapNhatNutTheme();
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -215,6 +221,7 @@ namespace QuanLyBanHangOnline.WinForms.Forms
             {
                 btnToggleTheme.Text = "☀️ Chế độ Sáng";
                 btnToggleTheme.BackColor = System.Drawing.Color.FromArgb(245, 158, 11);
+                btnToggleTheme.ForeColor = System.Drawing.Color.White;
                 mnuThemeToggle.Text = "☀️ Chế độ Sáng";
                 mnuThemeToggle.ForeColor = System.Drawing.Color.FromArgb(245, 158, 11);
             }
@@ -222,6 +229,7 @@ namespace QuanLyBanHangOnline.WinForms.Forms
             {
                 btnToggleTheme.Text = "🌙 Chế độ Tối";
                 btnToggleTheme.BackColor = System.Drawing.Color.FromArgb(30, 41, 59);
+                btnToggleTheme.ForeColor = System.Drawing.Color.White;
                 mnuThemeToggle.Text = "🌙 Giao diện Tối";
                 mnuThemeToggle.ForeColor = System.Drawing.Color.FromArgb(21, 101, 192);
             }

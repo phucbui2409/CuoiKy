@@ -80,7 +80,7 @@ namespace QuanLyBanHangOnline.WinForms.UIExtension
         // Màu nền & khung (Background & Surface) linh hoạt theo Dark Mode:
         public static Color BackgroundColor => CurrentTheme == ThemeMode.Dark 
             ? Color.FromArgb(15, 23, 42)        // Slate 900
-            : Color.FromArgb(248, 250, 252);    // #F8FAFC
+            : Color.FromArgb(248, 250, 252);    // Slate 50 #F8FAFC
 
         public static Color SurfaceColor => CurrentTheme == ThemeMode.Dark 
             ? Color.FromArgb(30, 41, 59)        // Slate 800
@@ -164,73 +164,194 @@ namespace QuanLyBanHangOnline.WinForms.UIExtension
                     c.Font = new Font(MainFontFamily, c.Font.Size, c.Font.Style);
                 }
 
-                // 1. Chuẩn hóa DataGridView (Hover/Selection, Header, Alternate rows)
-                if (c is DataGridView dgv)
+                // 1. Chuẩn hóa DataGridView
+                if (c is ModernDataGridView mdgv)
+                {
+                    mdgv.ApplyModernStyles();
+                }
+                else if (c is DataGridView dgv)
                 {
                     StyleDataGridView(dgv);
                 }
-                // 2. Chuẩn hóa Button
-                else if (c is Button btn && !(c is ModernButton))
+                // 2. Chuẩn hóa ModernButton & Button
+                else if (c is ModernButton mbtn)
+                {
+                    mbtn.BorderColor = BorderColor;
+                    mbtn.Invalidate();
+                }
+                else if (c is Button btn)
                 {
                     StyleStandardButton(btn);
                 }
-                // 3. Chuẩn hóa Panel tiêu đề trên cùng
-                else if (c is Panel pnl && (pnl.Name.StartsWith("panelTop") || pnl.Name.StartsWith("pnlHeader") || pnl.Name.StartsWith("pnlTop") || pnl.Dock == DockStyle.Top))
+                // 3. Chuẩn hóa CardView
+                else if (c is ModernCardView card)
                 {
-                    pnl.BackColor = PrimaryColor;
-                    foreach (Control pnlChild in pnl.Controls)
+                    card.ApplyTheme();
+                }
+                // 4. Chuẩn hóa Panel
+                else if (c is Panel pnl)
+                {
+                    if (pnl.Name.StartsWith("panelTop") || pnl.Name.StartsWith("pnlHeader") || pnl.Name.StartsWith("pnlTop") || pnl.Dock == DockStyle.Top)
                     {
-                        if (pnlChild is Label lblTitle && lblTitle.Dock == DockStyle.Fill)
+                        pnl.BackColor = (CurrentTheme == ThemeMode.Dark) ? Color.FromArgb(30, 41, 59) : PrimaryColor;
+                        foreach (Control pnlChild in pnl.Controls)
                         {
-                            lblTitle.ForeColor = TextLight;
+                            if (pnlChild is Label lblTitle)
+                            {
+                                lblTitle.ForeColor = TextLight;
+                            }
                         }
                     }
+                    else
+                    {
+                        // Panel nội dung thông thường (panelDashboard, panelMain, panelContainer, v.v.)
+                        pnl.BackColor = BackgroundColor;
+                        pnl.ForeColor = TextPrimary;
+                    }
                 }
-                // 4. Chuẩn hóa GroupBox
+                // 5. Chuẩn hóa GroupBox
                 else if (c is GroupBox grp)
                 {
                     grp.Font = HeaderFont;
                     grp.ForeColor = TextPrimary;
                     grp.BackColor = BackgroundColor;
-                    ApplyThemeToControls(grp.Controls);
                 }
-                // 5. Chuẩn hóa StatusStrip
+                // 6. Chuẩn hóa StatusStrip
                 else if (c is StatusStrip ss)
                 {
                     ss.BackColor = CurrentTheme == ThemeMode.Dark ? Color.FromArgb(15, 23, 42) : Color.FromArgb(241, 245, 249);
                     ss.ForeColor = TextPrimary;
                     ss.Font = BodyFont;
+                    ss.Renderer = new ToolStripProfessionalRenderer(new ModernMenuColorTable());
+                    foreach (ToolStripItem item in ss.Items)
+                    {
+                        if (item.Name == "lblStatusRole")
+                        {
+                            item.ForeColor = (CurrentTheme == ThemeMode.Dark) ? Color.FromArgb(56, 189, 248) : Color.DarkSlateGray;
+                        }
+                        else
+                        {
+                            item.ForeColor = TextPrimary;
+                        }
+                    }
                 }
-                // 6. Chuẩn hóa MenuStrip
+                // 7. Chuẩn hóa MenuStrip
                 else if (c is MenuStrip ms)
                 {
                     ms.BackColor = CurrentTheme == ThemeMode.Dark ? Color.FromArgb(30, 41, 59) : Color.FromArgb(241, 245, 249);
                     ms.ForeColor = TextPrimary;
                     ms.Font = new Font(MainFontFamily, 9.5F, FontStyle.Regular);
+                    ms.Renderer = new ToolStripProfessionalRenderer(new ModernMenuColorTable());
+                    StyleMenuStrip(ms);
                 }
-                // 7. Chuẩn hóa Label & TextBox
-                else if (c is Label lbl && !(c.Parent is Panel && c.Parent.Dock == DockStyle.Top))
+                // 8. Chuẩn hóa Label
+                else if (c is Label lbl)
                 {
-                    if (lbl.ForeColor != Color.Red && lbl.ForeColor != Color.White && lbl.ForeColor != DangerColor)
+                    if (!(lbl.Parent is Panel pParent && (pParent.Name.StartsWith("panelTop") || pParent.Name.StartsWith("pnlHeader") || pParent.Name.StartsWith("pnlTop") || pParent.Dock == DockStyle.Top)))
                     {
-                        lbl.ForeColor = TextPrimary;
+                        if (lbl.ForeColor != Color.Red && lbl.ForeColor != DangerColor)
+                        {
+                            lbl.ForeColor = TextPrimary;
+                        }
                     }
                 }
+                // 9. Chuẩn hóa TextBox & RichTextBox
                 else if (c is TextBox txt)
                 {
                     txt.BackColor = SurfaceColor;
                     txt.ForeColor = TextPrimary;
                 }
+                else if (c is RichTextBox rtb)
+                {
+                    rtb.BackColor = SurfaceColor;
+                    rtb.ForeColor = TextPrimary;
+                }
+                // 10. Chuẩn hóa ComboBox
                 else if (c is ComboBox cbo)
                 {
                     cbo.BackColor = SurfaceColor;
                     cbo.ForeColor = TextPrimary;
+                }
+                // 11. Chuẩn hóa NumericUpDown
+                else if (c is NumericUpDown num)
+                {
+                    num.BackColor = SurfaceColor;
+                    num.ForeColor = TextPrimary;
+                }
+                // 12. Chuẩn hóa CheckBox & RadioButton
+                else if (c is CheckBox chk && !(c is ModernToggleSwitch))
+                {
+                    chk.ForeColor = TextPrimary;
+                    chk.BackColor = Color.Transparent;
+                }
+                else if (c is RadioButton rdo)
+                {
+                    rdo.ForeColor = TextPrimary;
+                    rdo.BackColor = Color.Transparent;
+                }
+                // 13. Chuẩn hóa ListBox, ListView, TreeView
+                else if (c is ListBox lb)
+                {
+                    lb.BackColor = SurfaceColor;
+                    lb.ForeColor = TextPrimary;
+                }
+                else if (c is ListView lv)
+                {
+                    lv.BackColor = SurfaceColor;
+                    lv.ForeColor = TextPrimary;
+                }
+                else if (c is TreeView tv)
+                {
+                    tv.BackColor = SurfaceColor;
+                    tv.ForeColor = TextPrimary;
+                }
+                // 14. Chuẩn hóa TabControl
+                else if (c is TabControl tc)
+                {
+                    tc.BackColor = BackgroundColor;
+                    tc.ForeColor = TextPrimary;
+                    foreach (TabPage tp in tc.TabPages)
+                    {
+                        tp.BackColor = BackgroundColor;
+                        tp.ForeColor = TextPrimary;
+                    }
                 }
 
                 // Duyệt tiếp controls con
                 if (c.HasChildren && !(c is DataGridView))
                 {
                     ApplyThemeToControls(c.Controls);
+                }
+            }
+        }
+
+        private static void StyleMenuStrip(MenuStrip ms)
+        {
+            if (ms == null) return;
+            foreach (ToolStripItem item in ms.Items)
+            {
+                if (item.Name == "mnuThemeToggle") continue;
+                item.ForeColor = TextPrimary;
+                if (item is ToolStripMenuItem menuItem)
+                {
+                    StyleMenuItems(menuItem);
+                }
+            }
+        }
+
+        private static void StyleMenuItems(ToolStripMenuItem parent)
+        {
+            if (parent == null) return;
+            parent.DropDown.BackColor = SurfaceColor;
+            parent.DropDown.ForeColor = TextPrimary;
+            foreach (ToolStripItem subItem in parent.DropDownItems)
+            {
+                if (subItem.Name == "mnuThemeToggle") continue;
+                subItem.BackColor = SurfaceColor;
+                subItem.ForeColor = TextPrimary;
+                if (subItem is ToolStripMenuItem subMenu)
+                {
+                    StyleMenuItems(subMenu);
                 }
             }
         }
@@ -383,6 +504,30 @@ namespace QuanLyBanHangOnline.WinForms.UIExtension
             path.CloseFigure();
 
             return path;
+        }
+
+        /// <summary>
+        /// Bảng màu chuyên nghiệp cho MenuStrip và ToolStrip popup dropdown
+        /// </summary>
+        private class ModernMenuColorTable : ProfessionalColorTable
+        {
+            public override Color ToolStripDropDownBackground => SurfaceColor;
+            public override Color ImageMarginGradientBegin => SurfaceColor;
+            public override Color ImageMarginGradientMiddle => SurfaceColor;
+            public override Color ImageMarginGradientEnd => SurfaceColor;
+            public override Color MenuBorder => BorderColor;
+            public override Color MenuItemBorder => BorderColor;
+            public override Color MenuItemSelected => GridHoverColor;
+            public override Color MenuStripGradientBegin => (CurrentTheme == ThemeMode.Dark) ? Color.FromArgb(30, 41, 59) : Color.FromArgb(241, 245, 249);
+            public override Color MenuStripGradientEnd => (CurrentTheme == ThemeMode.Dark) ? Color.FromArgb(30, 41, 59) : Color.FromArgb(241, 245, 249);
+            public override Color MenuItemSelectedGradientBegin => GridHoverColor;
+            public override Color MenuItemSelectedGradientEnd => GridHoverColor;
+            public override Color MenuItemPressedGradientBegin => (CurrentTheme == ThemeMode.Dark) ? Color.FromArgb(51, 65, 85) : Color.FromArgb(219, 234, 254);
+            public override Color MenuItemPressedGradientEnd => (CurrentTheme == ThemeMode.Dark) ? Color.FromArgb(51, 65, 85) : Color.FromArgb(219, 234, 254);
+            public override Color SeparatorDark => BorderColor;
+            public override Color SeparatorLight => Color.Transparent;
+            public override Color StatusStripGradientBegin => (CurrentTheme == ThemeMode.Dark) ? Color.FromArgb(15, 23, 42) : Color.FromArgb(241, 245, 249);
+            public override Color StatusStripGradientEnd => (CurrentTheme == ThemeMode.Dark) ? Color.FromArgb(15, 23, 42) : Color.FromArgb(241, 245, 249);
         }
         #endregion
     }

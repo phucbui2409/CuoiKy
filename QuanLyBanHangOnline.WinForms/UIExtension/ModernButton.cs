@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.ComponentModel;
 using System.Drawing;
 using System.Drawing.Drawing2D;
@@ -34,6 +34,29 @@ namespace QuanLyBanHangOnline.WinForms.UIExtension
             UpdateHoverColor();
         }
 
+        public override Color BackColor
+        {
+            get => _backgroundColor;
+            set
+            {
+                _backgroundColor = value;
+                base.BackColor = value;
+                UpdateHoverColor();
+                this.Invalidate();
+            }
+        }
+
+        public override Color ForeColor
+        {
+            get => _textColor;
+            set
+            {
+                _textColor = value;
+                base.ForeColor = value;
+                this.Invalidate();
+            }
+        }
+
         [Category("Modern UI")]
         public int BorderSize
         {
@@ -58,21 +81,15 @@ namespace QuanLyBanHangOnline.WinForms.UIExtension
         [Category("Modern UI")]
         public Color BackgroundColor
         {
-            get => _backgroundColor;
-            set
-            {
-                _backgroundColor = value;
-                this.BackColor = value;
-                UpdateHoverColor();
-                this.Invalidate();
-            }
+            get => this.BackColor;
+            set => this.BackColor = value;
         }
 
         [Category("Modern UI")]
         public Color TextColor
         {
-            get => _textColor;
-            set { _textColor = value; this.ForeColor = value; this.Invalidate(); }
+            get => this.ForeColor;
+            set => this.ForeColor = value;
         }
 
         [Category("Modern UI")]
@@ -84,7 +101,7 @@ namespace QuanLyBanHangOnline.WinForms.UIExtension
 
         private void UpdateHoverColor()
         {
-            // Tự động làm sáng 10% khi hover nếu chưa chỉ định
+            // Tự động làm sáng 15% khi hover nếu chưa chỉ định
             int r = Math.Min(255, (int)(_backgroundColor.R * 1.15) + 15);
             int g = Math.Min(255, (int)(_backgroundColor.G * 1.15) + 15);
             int b = Math.Min(255, (int)(_backgroundColor.B * 1.15) + 15);
@@ -135,7 +152,9 @@ namespace QuanLyBanHangOnline.WinForms.UIExtension
             Color currentBg = _backgroundColor;
             if (!this.Enabled)
             {
-                currentBg = Color.FromArgb(203, 213, 225); // Disabled Slate
+                currentBg = (UIThemeManager.CurrentTheme == ThemeMode.Dark) 
+                    ? Color.FromArgb(51, 65, 85) 
+                    : Color.FromArgb(203, 213, 225); // Disabled Slate
             }
             else if (_isPressed)
             {
@@ -146,11 +165,18 @@ namespace QuanLyBanHangOnline.WinForms.UIExtension
                 currentBg = _hoverColor;
             }
 
+            // Lấy màu nền xung quanh để khử răng cưa viền bo góc hoàn hảo
+            Color parentBg = this.Parent?.BackColor ?? (UIThemeManager.CurrentTheme == ThemeMode.Dark ? UIThemeManager.BackgroundColor : Color.White);
+            if (parentBg == Color.Transparent && this.Parent != null)
+            {
+                parentBg = this.Parent.Parent?.BackColor ?? (UIThemeManager.CurrentTheme == ThemeMode.Dark ? UIThemeManager.BackgroundColor : Color.White);
+            }
+
             if (_borderRadius > 2)
             {
                 using (GraphicsPath pathSurface = UIThemeManager.GetRoundedPath(rectSurface, _borderRadius))
                 using (GraphicsPath pathBorder = UIThemeManager.GetRoundedPath(rectBorder, _borderRadius - _borderSize))
-                using (Pen penSurface = new Pen(this.Parent?.BackColor ?? Color.White, smoothSize))
+                using (Pen penSurface = new Pen(parentBg, smoothSize))
                 using (Pen penBorder = new Pen(_borderColor, _borderSize))
                 using (Brush brushBg = new SolidBrush(currentBg))
                 {
@@ -190,8 +216,12 @@ namespace QuanLyBanHangOnline.WinForms.UIExtension
             }
 
             // Vẽ Icon và Text
+            Color textDrawColor = this.Enabled 
+                ? _textColor 
+                : (UIThemeManager.CurrentTheme == ThemeMode.Dark ? Color.FromArgb(148, 163, 184) : Color.FromArgb(100, 116, 139));
+
             TextRenderer.DrawText(g, this.Text, this.Font, rectSurface,
-                this.Enabled ? _textColor : Color.FromArgb(148, 163, 184),
+                textDrawColor,
                 TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter | TextFormatFlags.WordBreak);
         }
     }
