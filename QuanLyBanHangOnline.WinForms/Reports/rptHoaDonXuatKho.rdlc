@@ -1,456 +1,15 @@
-<?xml version="1.0" encoding="utf-8"?>
-<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
-  <Body>
-    <ReportItems>
-      <!-- Tiêu đề cửa hàng -->
-      <Textbox Name="txtShopName">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>HỆ THỐNG QUẢN LÝ BÁN HÀNG ONLINE</Value>
-                <Style>
-                  <FontFamily>Segoe UI</FontFamily>
-                  <FontSize>11pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                  <Color>#2B6CB0</Color>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Địa chỉ: 123 Đường Điện Biên Phủ, TP. Hồ Chí Minh - Hotline: 1900 6868</Value>
-                <Style>
-                  <FontFamily>Segoe UI</FontFamily>
-                  <FontSize>9pt</FontSize>
-                  <Color>#718096</Color>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <Top>0.1in</Top>
-        <Left>0.5in</Left>
-        <Height>0.45in</Height>
-        <Width>6.5in</Width>
-      </Textbox>
-
-      <!-- Tiêu đề hóa đơn -->
-      <Textbox Name="txtReportTitle">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>HÓA ĐƠN BÁN HÀNG &amp; PHIẾU XUẤT KHO</Value>
-                <Style>
-                  <FontFamily>Segoe UI</FontFamily>
-                  <FontSize>16pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                  <Color>#1A202C</Color>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Center</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <Top>0.6in</Top>
-        <Left>0.5in</Left>
-        <Height>0.35in</Height>
-        <Width>6.5in</Width>
-      </Textbox>
-
-      <!-- Khối thông tin hóa đơn & khách hàng (2 cột) -->
-      <Textbox Name="txtOrderInfoLeft">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Mã đơn hàng: </Value>
-                <Style><FontFamily>Segoe UI</FontFamily><FontWeight>Bold</FontWeight></Style>
-              </TextRun>
-              <TextRun>
-                <Value>=Parameters!pMaHD.Value</Value>
-                <Style><FontFamily>Segoe UI</FontFamily><FontWeight>Bold</FontWeight><Color>#C53030</Color></Style>
-              </TextRun>
-            </TextRuns>
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Ngày đặt hàng: </Value>
-                <Style><FontFamily>Segoe UI</FontFamily><FontWeight>Bold</FontWeight></Style>
-              </TextRun>
-              <TextRun>
-                <Value>=Parameters!pNgayLap.Value</Value>
-                <Style><FontFamily>Segoe UI</FontFamily></Style>
-              </TextRun>
-            </TextRuns>
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Nhân viên lập / duyệt: </Value>
-                <Style><FontFamily>Segoe UI</FontFamily><FontWeight>Bold</FontWeight></Style>
-              </TextRun>
-              <TextRun>
-                <Value>=Parameters!pNhanVienLap.Value</Value>
-                <Style><FontFamily>Segoe UI</FontFamily></Style>
-              </TextRun>
-            </TextRuns>
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Trạng thái: </Value>
-                <Style><FontFamily>Segoe UI</FontFamily><FontWeight>Bold</FontWeight></Style>
-              </TextRun>
-              <TextRun>
-                <Value>=Parameters!pTrangThai.Value</Value>
-                <Style><FontFamily>Segoe UI</FontFamily><Color>#2F855A</Color><FontWeight>Bold</FontWeight></Style>
-              </TextRun>
-            </TextRuns>
-          </Paragraph>
-        </Paragraphs>
-        <Top>1.05in</Top>
-        <Left>0.5in</Left>
-        <Height>0.85in</Height>
-        <Width>3.1in</Width>
-      </Textbox>
-
-      <Textbox Name="txtCustomerInfoRight">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Khách hàng: </Value>
-                <Style><FontFamily>Segoe UI</FontFamily><FontWeight>Bold</FontWeight></Style>
-              </TextRun>
-              <TextRun>
-                <Value>=Parameters!pTenKhachHang.Value</Value>
-                <Style><FontFamily>Segoe UI</FontFamily></Style>
-              </TextRun>
-            </TextRuns>
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Điện thoại: </Value>
-                <Style><FontFamily>Segoe UI</FontFamily><FontWeight>Bold</FontWeight></Style>
-              </TextRun>
-              <TextRun>
-                <Value>=Parameters!pSoDienThoai.Value</Value>
-                <Style><FontFamily>Segoe UI</FontFamily></Style>
-              </TextRun>
-            </TextRuns>
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Địa chỉ nhận: </Value>
-                <Style><FontFamily>Segoe UI</FontFamily><FontWeight>Bold</FontWeight></Style>
-              </TextRun>
-              <TextRun>
-                <Value>=Parameters!pDiaChi.Value</Value>
-                <Style><FontFamily>Segoe UI</FontFamily></Style>
-              </TextRun>
-            </TextRuns>
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Ghi chú: </Value>
-                <Style><FontFamily>Segoe UI</FontFamily><FontWeight>Bold</FontWeight></Style>
-              </TextRun>
-              <TextRun>
-                <Value>=Parameters!pGhiChu.Value</Value>
-                <Style><FontFamily>Segoe UI</FontFamily></Style>
-              </TextRun>
-            </TextRuns>
-          </Paragraph>
-        </Paragraphs>
-        <Top>1.05in</Top>
-        <Left>3.8in</Left>
-        <Height>0.85in</Height>
-        <Width>3.2in</Width>
-      </Textbox>
-
-      <!-- Bảng chi tiết sản phẩm Tablix -->
-      <Tablix Name="TablixChiTiet">
-        <TablixBody>
-          <TablixColumns>
-            <TablixColumn><Width>0.4in</Width></TablixColumn>
-            <TablixColumn><Width>0.8in</Width></TablixColumn>
-            <TablixColumn><Width>2.4in</Width></TablixColumn>
-            <TablixColumn><Width>0.8in</Width></TablixColumn>
-            <TablixColumn><Width>0.6in</Width></TablixColumn>
-            <TablixColumn><Width>1.0in</Width></TablixColumn>
-            <TablixColumn><Width>1.0in</Width></TablixColumn>
-          </TablixColumns>
-          <TablixRows>
-            <!-- Tiêu đề bảng -->
-            <TablixRow>
-              <Height>0.3in</Height>
-              <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="hdrSTT">
-                      <Paragraphs><Paragraph><TextRuns><TextRun><Value>STT</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>9pt</FontSize><FontWeight>Bold</FontWeight><Color>White</Color></Style></TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs>
-                      <Style><BackgroundColor>#2B6CB0</BackgroundColor><PaddingLeft>2pt</PaddingLeft><PaddingRight>2pt</PaddingRight><PaddingTop>4pt</PaddingTop><PaddingBottom>4pt</PaddingBottom><BorderStyle><Default>Solid</Default></BorderStyle><BorderColor><Default>#CBD5E0</Default></BorderColor></Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="hdrMaHang">
-                      <Paragraphs><Paragraph><TextRuns><TextRun><Value>Mã Hàng</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>9pt</FontSize><FontWeight>Bold</FontWeight><Color>White</Color></Style></TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs>
-                      <Style><BackgroundColor>#2B6CB0</BackgroundColor><PaddingLeft>2pt</PaddingLeft><PaddingRight>2pt</PaddingRight><PaddingTop>4pt</PaddingTop><PaddingBottom>4pt</PaddingBottom><BorderStyle><Default>Solid</Default></BorderStyle><BorderColor><Default>#CBD5E0</Default></BorderColor></Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="hdrTenHang">
-                      <Paragraphs><Paragraph><TextRuns><TextRun><Value>Tên Hàng Hóa / Sản Phẩm</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>9pt</FontSize><FontWeight>Bold</FontWeight><Color>White</Color></Style></TextRun></TextRuns><Style><TextAlign>Left</TextAlign></Style></Paragraph></Paragraphs>
-                      <Style><BackgroundColor>#2B6CB0</BackgroundColor><PaddingLeft>4pt</PaddingLeft><PaddingRight>2pt</PaddingRight><PaddingTop>4pt</PaddingTop><PaddingBottom>4pt</PaddingBottom><BorderStyle><Default>Solid</Default></BorderStyle><BorderColor><Default>#CBD5E0</Default></BorderColor></Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="hdrMauSac">
-                      <Paragraphs><Paragraph><TextRuns><TextRun><Value>Màu Sắc</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>9pt</FontSize><FontWeight>Bold</FontWeight><Color>White</Color></Style></TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs>
-                      <Style><BackgroundColor>#2B6CB0</BackgroundColor><PaddingLeft>2pt</PaddingLeft><PaddingRight>2pt</PaddingRight><PaddingTop>4pt</PaddingTop><PaddingBottom>4pt</PaddingBottom><BorderStyle><Default>Solid</Default></BorderStyle><BorderColor><Default>#CBD5E0</Default></BorderColor></Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="hdrSoLuong">
-                      <Paragraphs><Paragraph><TextRuns><TextRun><Value>SL</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>9pt</FontSize><FontWeight>Bold</FontWeight><Color>White</Color></Style></TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs>
-                      <Style><BackgroundColor>#2B6CB0</BackgroundColor><PaddingLeft>2pt</PaddingLeft><PaddingRight>2pt</PaddingRight><PaddingTop>4pt</PaddingTop><PaddingBottom>4pt</PaddingBottom><BorderStyle><Default>Solid</Default></BorderStyle><BorderColor><Default>#CBD5E0</Default></BorderColor></Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="hdrDonGia">
-                      <Paragraphs><Paragraph><TextRuns><TextRun><Value>Đơn Giá (VND)</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>9pt</FontSize><FontWeight>Bold</FontWeight><Color>White</Color></Style></TextRun></TextRuns><Style><TextAlign>Right</TextAlign></Style></Paragraph></Paragraphs>
-                      <Style><BackgroundColor>#2B6CB0</BackgroundColor><PaddingLeft>2pt</PaddingLeft><PaddingRight>4pt</PaddingRight><PaddingTop>4pt</PaddingTop><PaddingBottom>4pt</PaddingBottom><BorderStyle><Default>Solid</Default></BorderStyle><BorderColor><Default>#CBD5E0</Default></BorderColor></Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="hdrThanhTien">
-                      <Paragraphs><Paragraph><TextRuns><TextRun><Value>Thành Tiền (VND)</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>9pt</FontSize><FontWeight>Bold</FontWeight><Color>White</Color></Style></TextRun></TextRuns><Style><TextAlign>Right</TextAlign></Style></Paragraph></Paragraphs>
-                      <Style><BackgroundColor>#2B6CB0</BackgroundColor><PaddingLeft>2pt</PaddingLeft><PaddingRight>4pt</PaddingRight><PaddingTop>4pt</PaddingTop><PaddingBottom>4pt</PaddingBottom><BorderStyle><Default>Solid</Default></BorderStyle><BorderColor><Default>#CBD5E0</Default></BorderColor></Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-              </TablixCells>
-            </TablixRow>
-
-            <!-- Dòng dữ liệu -->
-            <TablixRow>
-              <Height>0.26in</Height>
-              <TablixCells>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="colSTT">
-                      <Paragraphs><Paragraph><TextRuns><TextRun><Value>=Fields!STT.Value</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>9pt</FontSize></Style></TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs>
-                      <Style><PaddingLeft>2pt</PaddingLeft><PaddingRight>2pt</PaddingRight><PaddingTop>3pt</PaddingTop><PaddingBottom>3pt</PaddingBottom><BorderStyle><Default>Solid</Default></BorderStyle><BorderColor><Default>#E2E8F0</Default></BorderColor></Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="colMaHang">
-                      <Paragraphs><Paragraph><TextRuns><TextRun><Value>=Fields!MaHang.Value</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>9pt</FontSize><FontWeight>Bold</FontWeight></Style></TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs>
-                      <Style><PaddingLeft>2pt</PaddingLeft><PaddingRight>2pt</PaddingRight><PaddingTop>3pt</PaddingTop><PaddingBottom>3pt</PaddingBottom><BorderStyle><Default>Solid</Default></BorderStyle><BorderColor><Default>#E2E8F0</Default></BorderColor></Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="colTenHang">
-                      <Paragraphs><Paragraph><TextRuns><TextRun><Value>=Fields!TenHang.Value</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>9pt</FontSize></Style></TextRun></TextRuns><Style><TextAlign>Left</TextAlign></Style></Paragraph></Paragraphs>
-                      <Style><PaddingLeft>4pt</PaddingLeft><PaddingRight>2pt</PaddingRight><PaddingTop>3pt</PaddingTop><PaddingBottom>3pt</PaddingBottom><BorderStyle><Default>Solid</Default></BorderStyle><BorderColor><Default>#E2E8F0</Default></BorderColor></Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="colMauSac">
-                      <Paragraphs><Paragraph><TextRuns><TextRun><Value>=Fields!MauSac.Value</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>9pt</FontSize></Style></TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs>
-                      <Style><PaddingLeft>2pt</PaddingLeft><PaddingRight>2pt</PaddingRight><PaddingTop>3pt</PaddingTop><PaddingBottom>3pt</PaddingBottom><BorderStyle><Default>Solid</Default></BorderStyle><BorderColor><Default>#E2E8F0</Default></BorderColor></Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="colSoLuong">
-                      <Paragraphs><Paragraph><TextRuns><TextRun><Value>=Fields!SoLuong.Value</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>9pt</FontSize><FontWeight>Bold</FontWeight></Style></TextRun></TextRuns><Style><TextAlign>Center</TextAlign></Style></Paragraph></Paragraphs>
-                      <Style><PaddingLeft>2pt</PaddingLeft><PaddingRight>2pt</PaddingRight><PaddingTop>3pt</PaddingTop><PaddingBottom>3pt</PaddingBottom><BorderStyle><Default>Solid</Default></BorderStyle><BorderColor><Default>#E2E8F0</Default></BorderColor></Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="colDonGia">
-                      <Paragraphs><Paragraph><TextRuns><TextRun><Value>=Format(Fields!DonGia.Value, "N0")</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>9pt</FontSize></Style></TextRun></TextRuns><Style><TextAlign>Right</TextAlign></Style></Paragraph></Paragraphs>
-                      <Style><PaddingLeft>2pt</PaddingLeft><PaddingRight>4pt</PaddingRight><PaddingTop>3pt</PaddingTop><PaddingBottom>3pt</PaddingBottom><BorderStyle><Default>Solid</Default></BorderStyle><BorderColor><Default>#E2E8F0</Default></BorderColor></Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="colThanhTien">
-                      <Paragraphs><Paragraph><TextRuns><TextRun><Value>=Format(Fields!ThanhTien.Value, "N0")</Value><Style><FontFamily>Segoe UI</FontFamily><FontSize>9pt</FontSize><FontWeight>Bold</FontWeight></Style></TextRun></TextRuns><Style><TextAlign>Right</TextAlign></Style></Paragraph></Paragraphs>
-                      <Style><PaddingLeft>2pt</PaddingLeft><PaddingRight>4pt</PaddingRight><PaddingTop>3pt</PaddingTop><PaddingBottom>3pt</PaddingBottom><BorderStyle><Default>Solid</Default></BorderStyle><BorderColor><Default>#E2E8F0</Default></BorderColor></Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-              </TablixCells>
-            </TablixRow>
-          </TablixRows>
-        </TablixBody>
-        <TablixColumnHierarchy>
-          <TablixMembers>
-            <TablixMember />
-            <TablixMember />
-            <TablixMember />
-            <TablixMember />
-            <TablixMember />
-            <TablixMember />
-            <TablixMember />
-          </TablixMembers>
-        </TablixColumnHierarchy>
-        <TablixRowHierarchy>
-          <TablixMembers>
-            <TablixMember>
-              <KeepWithGroup>After</KeepWithGroup>
-              <RepeatOnNewPage>true</RepeatOnNewPage>
-            </TablixMember>
-            <TablixMember>
-              <Group Name="Details" />
-            </TablixMember>
-          </TablixMembers>
-        </TablixRowHierarchy>
-        <DataSetName>DataSetChiTietDonHang</DataSetName>
-        <Top>2.0in</Top>
-        <Left>0.5in</Left>
-        <Height>0.56in</Height>
-        <Width>7.0in</Width>
-      </Tablix>
-
-      <!-- Khối tổng tiền thanh toán -->
-      <Textbox Name="txtSummaryBlock">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Tổng tiền thanh toán: </Value>
-                <Style><FontFamily>Segoe UI</FontFamily><FontSize>11pt</FontSize><FontWeight>Bold</FontWeight></Style>
-              </TextRun>
-              <TextRun>
-                <Value>=Parameters!pTongTien.Value</Value>
-                <Style><FontFamily>Segoe UI</FontFamily><FontSize>13pt</FontSize><FontWeight>Bold</FontWeight><Color>#C53030</Color></Style>
-              </TextRun>
-              <TextRun>
-                <Value>  VND</Value>
-                <Style><FontFamily>Segoe UI</FontFamily><FontSize>11pt</FontSize><FontWeight>Bold</FontWeight></Style>
-              </TextRun>
-            </TextRuns>
-            <Style><TextAlign>Right</TextAlign></Style>
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Bằng chữ: </Value>
-                <Style><FontFamily>Segoe UI</FontFamily><FontWeight>Bold</FontWeight><FontStyle>Italic</FontStyle></Style>
-              </TextRun>
-              <TextRun>
-                <Value>=Parameters!pTongTienChu.Value</Value>
-                <Style><FontFamily>Segoe UI</FontFamily><FontStyle>Italic</FontStyle></Style>
-              </TextRun>
-            </TextRuns>
-            <Style><TextAlign>Right</TextAlign></Style>
-          </Paragraph>
-        </Paragraphs>
-        <Top>2.65in</Top>
-        <Left>1.5in</Left>
-        <Height>0.55in</Height>
-        <Width>6.0in</Width>
-      </Textbox>
-
-      <!-- Khối chữ ký 3 bên -->
-      <Textbox Name="txtSignatures">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>    Khách Hàng Nhận                     Thủ Kho Xuất Hàng                     Người Lập Phiếu</Value>
-                <Style><FontFamily>Segoe UI</FontFamily><FontSize>10pt</FontSize><FontWeight>Bold</FontWeight></Style>
-              </TextRun>
-            </TextRuns>
-          </Paragraph>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>    (Ký, ghi rõ họ tên)                      (Ký, ghi rõ họ tên)                       (Ký, ghi rõ họ tên)</Value>
-                <Style><FontFamily>Segoe UI</FontFamily><FontSize>8pt</FontSize><FontStyle>Italic</FontStyle><Color>#718096</Color></Style>
-              </TextRun>
-            </TextRuns>
-          </Paragraph>
-        </Paragraphs>
-        <Top>3.35in</Top>
-        <Left>0.5in</Left>
-        <Height>0.85in</Height>
-        <Width>7.0in</Width>
-      </Textbox>
-
-    </ReportItems>
-    <Height>4.3in</Height>
-    <Style />
-  </Body>
-
-  <!-- Danh sách tham số nhận từ C# ReportParameter -->
-  <ReportParameters>
-    <ReportParameter Name="pMaHD"><DataType>String</DataType><Prompt>pMaHD</Prompt></ReportParameter>
-    <ReportParameter Name="pNgayLap"><DataType>String</DataType><Prompt>pNgayLap</Prompt></ReportParameter>
-    <ReportParameter Name="pTenKhachHang"><DataType>String</DataType><Prompt>pTenKhachHang</Prompt></ReportParameter>
-    <ReportParameter Name="pDiaChi"><DataType>String</DataType><Prompt>pDiaChi</Prompt></ReportParameter>
-    <ReportParameter Name="pSoDienThoai"><DataType>String</DataType><Prompt>pSoDienThoai</Prompt></ReportParameter>
-    <ReportParameter Name="pNhanVienLap"><DataType>String</DataType><Prompt>pNhanVienLap</Prompt></ReportParameter>
-    <ReportParameter Name="pTrangThai"><DataType>String</DataType><Prompt>pTrangThai</Prompt></ReportParameter>
-    <ReportParameter Name="pTongTien"><DataType>String</DataType><Prompt>pTongTien</Prompt></ReportParameter>
-    <ReportParameter Name="pTongTienChu"><DataType>String</DataType><Prompt>pTongTienChu</Prompt></ReportParameter>
-    <ReportParameter Name="pGhiChu"><DataType>String</DataType><Nullable>true</Nullable><Prompt>pGhiChu</Prompt></ReportParameter>
-  </ReportParameters>
-
-  <!-- Danh sách trường dữ liệu nhận từ C# ReportDataSource -->
+<?xml version='1.0' encoding='utf-8'?>
+<Report xmlns="http://schemas.microsoft.com/sqlserver/reporting/2016/01/reportdefinition" xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner">
+  <AutoRefresh>0</AutoRefresh>
+  <DataSources>
+    <DataSource Name="DummyDataSource">
+      <ConnectionProperties>
+        <DataProvider>SQL</DataProvider>
+        <ConnectString />
+      </ConnectionProperties>
+      <rd:SecurityType>None</rd:SecurityType>
+    </DataSource>
+  </DataSources>
   <DataSets>
     <DataSet Name="DataSetChiTietDonHang">
       <Query>
@@ -458,25 +17,966 @@
         <CommandText />
       </Query>
       <Fields>
-        <Field Name="STT"><DataField>STT</DataField><rd:TypeName>System.Int32</rd:TypeName></Field>
-        <Field Name="MaHang"><DataField>MaHang</DataField><rd:TypeName>System.String</rd:TypeName></Field>
-        <Field Name="TenHang"><DataField>TenHang</DataField><rd:TypeName>System.String</rd:TypeName></Field>
-        <Field Name="MauSac"><DataField>MauSac</DataField><rd:TypeName>System.String</rd:TypeName></Field>
-        <Field Name="SoLuong"><DataField>SoLuong</DataField><rd:TypeName>System.Int32</rd:TypeName></Field>
-        <Field Name="DonGia"><DataField>DonGia</DataField><rd:TypeName>System.Decimal</rd:TypeName></Field>
-        <Field Name="ThanhTien"><DataField>ThanhTien</DataField><rd:TypeName>System.Decimal</rd:TypeName></Field>
+        <Field Name="STT">
+          <DataField>STT</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="MaHang">
+          <DataField>MaHang</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TenHang">
+          <DataField>TenHang</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MauSac">
+          <DataField>MauSac</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SoLuong">
+          <DataField>SoLuong</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
+        </Field>
+        <Field Name="DonGia">
+          <DataField>DonGia</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="ThanhTien">
+          <DataField>ThanhTien</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
       </Fields>
     </DataSet>
   </DataSets>
-
-  <Width>7.8in</Width>
-  <Page>
-    <LeftMargin>0.4in</LeftMargin>
-    <RightMargin>0.4in</RightMargin>
-    <TopMargin>0.4in</TopMargin>
-    <BottomMargin>0.4in</BottomMargin>
-    <Style />
-  </Page>
+  <ReportSections>
+    <ReportSection>
+      <Body>
+        <ReportItems>
+          <Textbox Name="txtShopName">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>HỆ THỐNG QUẢN LÝ BÁN HÀNG ONLINE</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>11pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <Color>#2B6CB0</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Địa chỉ: 123 Đường Điện Biên Phủ, TP. Hồ Chí Minh - Hotline: 1900 6868</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>9pt</FontSize>
+                      <Color>#718096</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <Top>0.1in</Top>
+            <Left>0.5in</Left>
+            <Height>0.45in</Height>
+            <Width>6.5in</Width>
+          </Textbox>
+          <Textbox Name="txtReportTitle">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>HÓA ĐƠN BÁN HÀNG &amp; PHIẾU XUẤT KHO</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>16pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <Color>#1A202C</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Center</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <Top>0.6in</Top>
+            <Left>0.5in</Left>
+            <Height>0.35in</Height>
+            <Width>6.5in</Width>
+          </Textbox>
+          <Textbox Name="txtOrderInfoLeft">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Mã đơn hàng: </Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Parameters!pMaHD.Value</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                      <Color>#C53030</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Ngày đặt hàng: </Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Parameters!pNgayLap.Value</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Nhân viên lập / duyệt: </Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Parameters!pNhanVienLap.Value</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Trạng thái: </Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Parameters!pTrangThai.Value</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                      <Color>#2F855A</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+              </Paragraph>
+            </Paragraphs>
+            <Top>1.05in</Top>
+            <Left>0.5in</Left>
+            <Height>0.85in</Height>
+            <Width>3.1in</Width>
+          </Textbox>
+          <Textbox Name="txtCustomerInfoRight">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Khách hàng: </Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Parameters!pTenKhachHang.Value</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Điện thoại: </Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Parameters!pSoDienThoai.Value</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Địa chỉ nhận: </Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Parameters!pDiaChi.Value</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Ghi chú: </Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Parameters!pGhiChu.Value</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+              </Paragraph>
+            </Paragraphs>
+            <Top>1.05in</Top>
+            <Left>3.8in</Left>
+            <Height>0.85in</Height>
+            <Width>3.2in</Width>
+          </Textbox>
+          <Tablix Name="TablixChiTiet">
+            <TablixBody>
+              <TablixColumns>
+                <TablixColumn>
+                  <Width>0.4in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.8in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>2.4in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.8in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>0.6in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.0in</Width>
+                </TablixColumn>
+                <TablixColumn>
+                  <Width>1.0in</Width>
+                </TablixColumn>
+              </TablixColumns>
+              <TablixRows>
+                <TablixRow>
+                  <Height>0.3in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="hdrSTT">
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>STT</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Color>#CBD5E0</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#2B6CB0</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>4pt</PaddingTop>
+                            <PaddingBottom>4pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="hdrMaHang">
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Mã Hàng</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Color>#CBD5E0</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#2B6CB0</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>4pt</PaddingTop>
+                            <PaddingBottom>4pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="hdrTenHang">
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Tên Hàng Hóa / Sản Phẩm</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Color>#CBD5E0</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#2B6CB0</BackgroundColor>
+                            <PaddingLeft>4pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>4pt</PaddingTop>
+                            <PaddingBottom>4pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="hdrMauSac">
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Màu Sắc</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Color>#CBD5E0</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#2B6CB0</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>4pt</PaddingTop>
+                            <PaddingBottom>4pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="hdrSoLuong">
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>SL</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Color>#CBD5E0</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#2B6CB0</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>4pt</PaddingTop>
+                            <PaddingBottom>4pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="hdrDonGia">
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Đơn Giá (VND)</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Color>#CBD5E0</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#2B6CB0</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>4pt</PaddingRight>
+                            <PaddingTop>4pt</PaddingTop>
+                            <PaddingBottom>4pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="hdrThanhTien">
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>Thành Tiền (VND)</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                    <Color>White</Color>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Color>#CBD5E0</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <BackgroundColor>#2B6CB0</BackgroundColor>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>4pt</PaddingRight>
+                            <PaddingTop>4pt</PaddingTop>
+                            <PaddingBottom>4pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+                <TablixRow>
+                  <Height>0.26in</Height>
+                  <TablixCells>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="colSTT">
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!STT.Value</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Color>#E2E8F0</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>3pt</PaddingTop>
+                            <PaddingBottom>3pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="colMaHang">
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!MaHang.Value</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Color>#E2E8F0</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>3pt</PaddingTop>
+                            <PaddingBottom>3pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="colTenHang">
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!TenHang.Value</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Left</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Color>#E2E8F0</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>4pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>3pt</PaddingTop>
+                            <PaddingBottom>3pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="colMauSac">
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!MauSac.Value</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Color>#E2E8F0</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>3pt</PaddingTop>
+                            <PaddingBottom>3pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="colSoLuong">
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Fields!SoLuong.Value</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Center</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Color>#E2E8F0</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>2pt</PaddingRight>
+                            <PaddingTop>3pt</PaddingTop>
+                            <PaddingBottom>3pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="colDonGia">
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Format(Fields!DonGia.Value, "N0")</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Color>#E2E8F0</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>4pt</PaddingRight>
+                            <PaddingTop>3pt</PaddingTop>
+                            <PaddingBottom>3pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                    <TablixCell>
+                      <CellContents>
+                        <Textbox Name="colThanhTien">
+                          <Paragraphs>
+                            <Paragraph>
+                              <TextRuns>
+                                <TextRun>
+                                  <Value>=Format(Fields!ThanhTien.Value, "N0")</Value>
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>9pt</FontSize>
+                                    <FontWeight>Bold</FontWeight>
+                                  </Style>
+                                </TextRun>
+                              </TextRuns>
+                              <Style>
+                                <TextAlign>Right</TextAlign>
+                              </Style>
+                            </Paragraph>
+                          </Paragraphs>
+                          <Style>
+                            <Border>
+                              <Color>#E2E8F0</Color>
+                              <Style>Solid</Style>
+                            </Border>
+                            <PaddingLeft>2pt</PaddingLeft>
+                            <PaddingRight>4pt</PaddingRight>
+                            <PaddingTop>3pt</PaddingTop>
+                            <PaddingBottom>3pt</PaddingBottom>
+                          </Style>
+                        </Textbox>
+                      </CellContents>
+                    </TablixCell>
+                  </TablixCells>
+                </TablixRow>
+              </TablixRows>
+            </TablixBody>
+            <TablixColumnHierarchy>
+              <TablixMembers>
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+                <TablixMember />
+              </TablixMembers>
+            </TablixColumnHierarchy>
+            <TablixRowHierarchy>
+              <TablixMembers>
+                <TablixMember>
+                  <KeepWithGroup>After</KeepWithGroup>
+                  <RepeatOnNewPage>true</RepeatOnNewPage>
+                </TablixMember>
+                <TablixMember>
+                  <Group Name="Details" />
+                </TablixMember>
+              </TablixMembers>
+            </TablixRowHierarchy>
+            <DataSetName>DataSetChiTietDonHang</DataSetName>
+            <Top>2.0in</Top>
+            <Left>0.5in</Left>
+            <Height>0.56in</Height>
+            <Width>7.0in</Width>
+          </Tablix>
+          <Textbox Name="txtSummaryBlock">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Tổng tiền thanh toán: </Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>11pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Parameters!pTongTien.Value</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>13pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                      <Color>#C53030</Color>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>  VND</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>11pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>Bằng chữ: </Value>
+                    <Style>
+                      <FontStyle>Italic</FontStyle>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                  <TextRun>
+                    <Value>=Parameters!pTongTienChu.Value</Value>
+                    <Style>
+                      <FontStyle>Italic</FontStyle>
+                      <FontFamily>Segoe UI</FontFamily>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+                <Style>
+                  <TextAlign>Right</TextAlign>
+                </Style>
+              </Paragraph>
+            </Paragraphs>
+            <Top>2.65in</Top>
+            <Left>1.5in</Left>
+            <Height>0.55in</Height>
+            <Width>6.0in</Width>
+          </Textbox>
+          <Textbox Name="txtSignatures">
+            <CanGrow>true</CanGrow>
+            <KeepTogether>true</KeepTogether>
+            <Paragraphs>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>    Khách Hàng Nhận                     Thủ Kho Xuất Hàng                     Người Lập Phiếu</Value>
+                    <Style>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>10pt</FontSize>
+                      <FontWeight>Bold</FontWeight>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+              </Paragraph>
+              <Paragraph>
+                <TextRuns>
+                  <TextRun>
+                    <Value>    (Ký, ghi rõ họ tên)                      (Ký, ghi rõ họ tên)                       (Ký, ghi rõ họ tên)</Value>
+                    <Style>
+                      <FontStyle>Italic</FontStyle>
+                      <FontFamily>Segoe UI</FontFamily>
+                      <FontSize>8pt</FontSize>
+                      <Color>#718096</Color>
+                    </Style>
+                  </TextRun>
+                </TextRuns>
+              </Paragraph>
+            </Paragraphs>
+            <Top>3.35in</Top>
+            <Left>0.5in</Left>
+            <Height>0.85in</Height>
+            <Width>7.0in</Width>
+          </Textbox>
+        </ReportItems>
+        <Height>4.3in</Height>
+      </Body>
+      <Width>7.6in</Width>
+      <Page>
+        <PageHeight>11in</PageHeight>
+        <PageWidth>8.5in</PageWidth>
+        <LeftMargin>0.4in</LeftMargin>
+        <RightMargin>0.4in</RightMargin>
+        <TopMargin>0.4in</TopMargin>
+        <BottomMargin>0.4in</BottomMargin>
+        <ColumnSpacing>0.05118in</ColumnSpacing>
+        <Style />
+      </Page>
+    </ReportSection>
+  </ReportSections>
+  <ReportParameters>
+    <ReportParameter Name="pMaHD">
+      <DataType>String</DataType>
+      <Prompt>pMaHD</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="pNgayLap">
+      <DataType>String</DataType>
+      <Prompt>pNgayLap</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="pTenKhachHang">
+      <DataType>String</DataType>
+      <Prompt>pTenKhachHang</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="pDiaChi">
+      <DataType>String</DataType>
+      <Prompt>pDiaChi</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="pSoDienThoai">
+      <DataType>String</DataType>
+      <Prompt>pSoDienThoai</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="pNhanVienLap">
+      <DataType>String</DataType>
+      <Prompt>pNhanVienLap</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="pTrangThai">
+      <DataType>String</DataType>
+      <Prompt>pTrangThai</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="pTongTien">
+      <DataType>String</DataType>
+      <Prompt>pTongTien</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="pTongTienChu">
+      <DataType>String</DataType>
+      <Prompt>pTongTienChu</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="pGhiChu">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <Prompt>pGhiChu</Prompt>
+    </ReportParameter>
+  </ReportParameters>
   <Language>vi-VN</Language>
   <ConsumeContainerWhitespace>true</ConsumeContainerWhitespace>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+  <rd:ReportID>05ed658f-f67e-4f4f-822f-9267e148609b</rd:ReportID>
 </Report>
